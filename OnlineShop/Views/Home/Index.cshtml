@@ -1,0 +1,23 @@
+﻿﻿@{
+    ViewData["Title"] = "Home Page";
+}
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="@Url.Content("~/css/home.css")">
+</head>
+<body>
+    @section Header {
+        <div>Добро пожаловать на сайт маркетплейса! Покупки стали еще проще.</div>
+    }
+    <div class="text-container">
+        <p>Для перехода к другим разделам сайта необходимо авторизироваться или зарегистрироваться.</p>
+        <p><a href="@Url.Action("Login", "Account")">Войти</a> или <a href="@Url.Action("Register", "Account")">Зарегистрироваться</a></p>
+
+    </div>
+    @section Footer {
+        <div>&copy; Ваш универсальный ресурс для умных покупок.</div>
+    }
+</body>
+</html>

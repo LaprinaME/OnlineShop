@@ -1,0 +1,92 @@
+﻿@{
+    ViewData["Title"] = "Employee Menu";
+}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Меню для сотрудников</title>
+    <style>
+        body {
+            font-family: 'Anonymous Pro', monospace;
+            background: linear-gradient(to bottom, #d8f5ff, #e0e0e0); /* Пастельный градиент */
+            margin: 0;
+            padding: 0;
+        }
+
+        h2, .welcome-message, label, p {
+            text-align: center;
+            color: #222; /* Темный серый */
+            margin-top: 5px;
+            background-color: linear-gradient(to bottom, #d8f5ff, #e0e0e0); /* Пастельный градиент */
+        }
+
+        .menu-container {
+            width: 60%;
+            margin: 50px auto;
+            padding: 30px;
+            border-radius: 10px;
+            background: linear-gradient(to bottom, #d8f5ff, #e0e0e0); /* Пастельный градиент */
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+        }
+
+        select {
+            width: 100%;
+            padding: 12px;
+            border-radius: 8px;
+            border: none;
+            background-color: #ECEABE; /* Светлый желто-розовый */
+            color: #222;
+            font-size: 16px;
+            margin-bottom: 20px;
+        }
+
+        button, .return-button {
+            display: block;
+            width: 50%; /* Уменьшаем ширину кнопок */
+            padding: 10px;
+            border: 2px solid #333; /* Темно-серая граница */
+            border-radius: 20px; /* Закругляем углы кнопок */
+            background-color: #6cdbeb; /* Голубой */
+            color: #fff; /* Белый */
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            margin: auto; /* Центрируем кнопки */
+        }
+
+            button:hover, .return-button:hover {
+                background-color: #5ab9ea; /* Темнее голубой при наведении */
+            }
+
+        .button-container {
+            text-align: center;
+            margin-top: 20px;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="welcome-message">
+        <h2>Добро пожаловать, сотрудник!</h2>
+        <p>Вам предоставлен ограниченный функционал на веб-сайте.</p>
+    </div>
+    <div class="menu-container">
+        <h2>Меню для сотрудников маркетплейса</h2>
+        <form method="post" action="/Menu">
+            <label for="page">Выберите страницу:</label>
+            <select name="page" id="page">
+                <option value="Home/Index">Главная страница</option>
+                <option value="AddProduct/Index">Добавление товаров на склад</option>
+                <option value="DeleteProduct/Index">Удаление товаров на складе</option>
+                <option value="Orders/Index">Просмотр заказов на ПВЗ</option>
+            </select>
+            <button type="submit">Перейти</button>
+        </form>
+    </div>
+    <div class="button-container">
+        <form method="get" action="/Home/Index">
+            <button type="submit" class="return-button">Вернуться на главную страницу</button>
+        </form>
+    </div>
+</body>
+</html>

@@ -1,0 +1,81 @@
+﻿/* Стили для страницы добавления товара */
+body {
+    font-family: 'Anonymous Pro', monospace;
+    background: linear-gradient(to bottom right, #30292f, #583b63, #7b4b8b); /* Темный пастельный градиент */
+    margin: 0;
+    padding: 0;
+    color: #fff; /* Белый текст */
+}
+
+.container {
+    width: 60%;
+    margin: 50px auto;
+    padding: 30px;
+    border-radius: 10px;
+    background-color: rgba(255, 255, 255, 0.2); /* Прозрачный белый фон */
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+}
+
+h2 {
+    text-align: center;
+    color: #FFA8C6; /* Неоново-розовый цвет */
+    margin-top: 0;
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+label {
+    display: block;
+    color: #FFA8C6; /* Неоново-розовый цвет */
+    font-weight: bold;
+}
+
+input[type="text"],
+input[type="number"] {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #FFA8C6; /* Неоново-розовый цвет */
+    border-radius: 5px;
+    box-sizing: border-box;
+    background-color: transparent;
+    color: #fff; /* Белый текст */
+}
+
+.btn-primary {
+    display: block;
+    width: 100%;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    background-color: #FFA8C6; /* Неоново-розовый цвет */
+    color: #fff;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+    .btn-primary:hover {
+        background-color: #FF8C69; /* Пастельно-оранжевый цвет */
+    }
+
+.text-danger {
+    color: #FF6347; /* Красный цвет */
+    font-size: 12px;
+    margin-top: 5px;
+}
+.btn.btn-secondary {
+    background-color: #6c757d; /* Серый цвет */
+    color: #fff; /* Белый цвет */
+    border: none; /* Убираем границу */
+    padding: 10px 20px; /* Отступы внутри кнопки */
+    border-radius: 5px; /* Скругленные углы */
+    text-decoration: none; /* Убираем подчеркивание для ссылки */
+    display: inline-block; /* Размещаем кнопку в строку */
+    transition: background-color 0.3s ease; /* Плавное изменение цвета при наведении */
+    margin-top: 5px;
+}
+
+    .btn.btn-secondary:hover {
+        background-color: #495057; /* Цвет кнопки при наведении */
+    }

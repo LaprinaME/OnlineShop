@@ -1,0 +1,125 @@
+﻿@model OnlineShop.ViewModels.EditProductViewModel
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Редактирование товаров</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #222; /* Светло-серый фон */
+            color: #333; /* Черный текст */
+            margin: 0;
+            padding: 0;
+        }
+
+        h2 {
+            text-align: center;
+            margin-top: 50px;
+            color: #007bff; /* Голубой цвет */
+        }
+
+        .container {
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #fff; /* Белый фон */
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Тень */
+        }
+
+        .scroll-container {
+            max-height: 400px;
+            overflow-y: auto;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 10px;
+        }
+
+        input[type="text"],
+        input[type="number"] {
+            width: 100%;
+            padding: 8px;
+            margin-bottom: 15px;
+            border: 1px solid #ccc; /* Серая граница */
+            border-radius: 5px;
+            box-sizing: border-box;
+        }
+
+        input[type="submit"] {
+            background-color: #007bff; /* Голубая кнопка */
+            color: #fff; /* Белый текст */
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+            input[type="submit"]:hover {
+                background-color: #0056b3; /* Темнее голубая кнопка при наведении */
+            }
+
+        .return-button {
+            margin-top: 20px;
+            text-align: center;
+        }
+
+            .return-button a {
+                text-decoration: none;
+                color: #007bff;
+                font-weight: bold;
+            }
+
+                .return-button a:hover {
+                    text-decoration: underline;
+                }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Редактирование информации о товарах</h2>
+        <div class="scroll-container" >
+            <form asp-controller="EditProduct" asp-action="Edit" method="post">
+                <div>
+                    <label for="name">Наименование:</label>
+                    <input type="text" id="name" name="Наименование" value="@Model.Name" required>
+                </div>
+                <div>
+                    <label for="price">Цена:</label>
+                    <input type="number" id="price" name="Цена" value="@Model.Price" step="0.01" min="0" required>
+                </div>
+                <div>
+                    <label for="rating">Рейтинг товара:</label>
+                    <input type="number" id="rating" name="Рейтинг_товара" value="@Model.Rating" step="0.1" min="0" max="10" required>
+                </div>
+                <div>
+                    <label for="category">Категория:</label>
+                    <input type="text" id="category" name="Категория" value="@Model.Category" required>
+                </div>
+                <div>
+                    <label for="brand">Бренд:</label>
+                    <input type="text" id="brand" name="Бренд" value="@Model.Brand" required>
+                </div>
+                <div>
+                    <label for="quantity">Количество:</label>
+                    <input type="number" id="quantity" name="Количество" value="@Model.Quantity" min="0" required>
+                </div>
+                <div>
+                    <label for="manufacturer">Производитель:</label>
+                    <input type="text" id="manufacturer" name="Производитель" value="@Model.Manufacturer" required>
+                </div>
+                <div>
+                    <input type="submit" value="Сохранить">
+                </div>
+            </form>
+        </div>
+        <div class="return-button">
+            <a href="/MenuAdmin">Вернуться в меню</a>
+        </div>
+    </div>
+
+</body>
+</html>

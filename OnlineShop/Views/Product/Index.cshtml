@@ -1,0 +1,139 @@
+﻿@model List<OnlineShop.Models.Товары>
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Список продуктов</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: #333;
+            margin: 0;
+            padding: 0;
+            color: #fff;
+        }
+
+        h2 {
+            text-align: center;
+            margin-top: 50px;
+            color: #fff;
+        }
+
+        .table {
+            width: 80%;
+            margin: 20px auto;
+            border-collapse: collapse;
+        }
+
+            .table th, .table td {
+                padding: 10px;
+                border: 1px solid #fff;
+            }
+
+            .table th {
+                background-color: #555;
+                color: #fff;
+            }
+
+            .table td {
+                background-color: #777;
+            }
+
+        .no-products {
+            text-align: center;
+            margin-top: 20px;
+            color: #fff;
+        }
+
+        .return-button {
+            display: block;
+            width: 150px;
+            margin: 20px auto;
+            padding: 10px;
+            border: none;
+            border-radius: 5px;
+            background-color: #555;
+            color: #fff;
+            text-align: center;
+            text-decoration: none;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+            .return-button:hover {
+                background-color: #777;
+            }
+
+        .table {
+            width: 80%;
+            margin: 20px auto;
+            border-collapse: collapse;
+        }
+
+            .table th, .table td {
+                padding: 10px;
+                border: 1px solid #fff;
+            }
+
+            .table th {
+                background-color: #555;
+                color: #fff;
+            }
+
+            .table td {
+                background-color: #777;
+                transition: background-color 0.3s ease; /* Добавляем анимацию перехода */
+            }
+
+                .table td:hover {
+                    background-color: #999; /* Подсвечиваем ячейку при наведении */
+                }
+
+        .no-products {
+            text-align: center;
+            margin-top: 20px;
+            color: #fff;
+        }
+    </style>
+</head>
+<body>
+    <h2>Список продуктов</h2>
+
+    @if (Model.Any())
+    {
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>Наименование</th>
+                    <th>Цена</th>
+                    <th>Рейтинг товара</th>
+                    <th>Категория</th>
+                    <th>Бренд</th>
+                    <th>Количество</th>
+                    <th>Производитель</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var product in Model)
+                {
+                    <tr>
+                        <td>@product.Наименование</td>
+                        <td>@product.Цена</td>
+                        <td>@product.Рейтинг_товара</td>
+                        <td>@product.Категория</td>
+                        <td>@product.Бренд</td>
+                        <td>@product.Количество</td>
+                        <td>@product.Производитель</td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    }
+    else
+    {
+        <p class="no-products">Нет доступных продуктов.</p>
+    }
+
+    <a href="/Menu" class="return-button">Вернуться в меню</a>
+</body>
+</html>

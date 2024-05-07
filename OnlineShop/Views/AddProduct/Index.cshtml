@@ -1,0 +1,58 @@
+﻿@model OnlineShop.ViewModels.AddProductViewModel
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Добавление нового товара</title>
+    <link rel="stylesheet" href="~/css/addproduct.css"> <!-- Подключение файла стилей -->
+</head>
+<body>
+    <div class="container">
+        <h2>Добавление нового товара</h2>
+        <form method="post" asp-action="AddProduct">
+            <div class="form-group">
+                <label asp-for="Код_Товара">Код товара:</label>
+                <input asp-for="Код_Товара" class="form-control" />
+                <span asp-validation-for="Код_Товара" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Наименование">Наименование:</label>
+                <input asp-for="Наименование" class="form-control" />
+                <span asp-validation-for="Наименование" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Цена">Цена:</label>
+                <input asp-for="Цена" class="form-control" />
+                <span asp-validation-for="Цена" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Рейтинг_товара">Рейтинг товара:</label>
+                <input asp-for="Рейтинг_товара" class="form-control" />
+                <span asp-validation-for="Рейтинг_товара" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Категория">Категория:</label>
+                <input asp-for="Категория" class="form-control" />
+                <span asp-validation-for="Категория" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Бренд">Бренд:</label>
+                <input asp-for="Бренд" class="form-control" />
+                <span asp-validation-for="Бренд" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Количество">Количество:</label>
+                <input asp-for="Количество" class="form-control" />
+                <span asp-validation-for="Количество" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Производитель">Производитель:</label>
+                <input asp-for="Производитель" class="form-control" />
+                <span asp-validation-for="Производитель" class="text-danger"></span>
+            </div>
+            <button type="submit" class="btn btn-primary">Добавить</button>
+        </form>
+        <a href="/Home" class="btn btn-secondary">Вернуться на главную страницу</a>
+    </div>
+</body>
+</html>

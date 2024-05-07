@@ -1,0 +1,94 @@
+﻿@{
+    ViewData["Title"] = "Admin Menu";
+}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Административное меню</title>
+    <style>
+        body {
+            font-family: 'Anonymous Pro', monospace;
+            background: url("../images/menuadmin.jpg") no-repeat center center fixed; /* Фоновая картинка */
+            background-size: cover;
+            margin: 0;
+            padding: 0;
+        }
+
+        h2, .welcome-message, label, p {
+            text-align: center;
+            color: #222; /* Очень светлый желто-зеленый */
+            margin-top: 5px;
+            background-color: linear-gradient(to bottom right, #DAD871, #ACB78E);
+        }
+
+        .menu-container {
+            width: 60%;
+            margin: 50px auto;
+            padding: 30px;
+            border-radius: 10px;
+            background: linear-gradient(to bottom right, #DAD871, #ACB78E); /* Градиентный фон */
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+        }
+
+        select {
+            width: 100%;
+            padding: 12px;
+            border-radius: 8px;
+            border: none;
+            background-color: #ECEABE; /* Светлый желто-розовый */
+            color: #222;
+            font-size: 16px;
+            margin-bottom: 20px;
+        }
+
+        button, .return-button {
+            display: block;
+            width: 50%; /* Уменьшаем ширину кнопок */
+            padding: 10px;
+            border: none;
+            border-radius: 20px; /* Закругляем углы кнопок */
+            background-color: #D3D26F; /* Салатовый (Салатный) */
+            color: #333;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            margin: auto; /* Центрируем кнопки */
+        }
+
+            button:hover, .return-button:hover {
+                background-color: #EEE8AA; /* Зелено-бежевый */
+            }
+
+        .button-container {
+            text-align: center;
+            margin-top: 20px;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="welcome-message">
+        <h2>Добро пожаловать, администратор!</h2>
+        <p>Вам предоставлен полный функционал на веб-сайте.</p>
+    </div>
+    <div class="menu-container">
+        <h2>Административное меню</h2>
+        <form method="post" action="/Menu">
+            <label for="page">Выберите страницу:</label>
+            <select name="page" id="page">
+                <option value="Home/Index">Главная страница</option>
+                <option value="AddProduct/Index">Добавление товаров на склад</option>
+                <option value="DeleteProduct/Index">Удаление товаров на складе</option>
+                <option value="EditProduct/Index">Редактирование данных о товарах на складе</option>
+                <option value="PickupPoints/Index">Cписок пунктов самовывоза</option>
+            </select>
+            <button type="submit">Перейти</button>
+        </form>
+    </div>
+    <div class="button-container">
+        <form method="get" action="/Home/Index">
+            <button type="submit" class="return-button">Вернуться на главную страницу</button>
+        </form>
+    </div>
+</body>
+</html>

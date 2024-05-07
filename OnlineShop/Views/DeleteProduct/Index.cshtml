@@ -1,0 +1,156 @@
+﻿@model IEnumerable<OnlineShop.ViewModels.DeleteProductViewModel>
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Удаление товаров</title>
+    <style>
+        body {
+            font-family: 'Anonymous Pro', monospace;
+            background: linear-gradient(to bottom right, #30292f, #583b63, #7b4b8b); /* Темный пастельный градиент */
+            margin: 0;
+            padding: 0;
+            color: #fff; /* Белый текст */
+        }
+
+        h2 {
+            text-align: center;
+            color: #7FC7FF; /* Голубой цвет */
+            margin-top: 0;
+        }
+
+        .table {
+            width: 80%;
+            margin: 20px auto;
+            border-collapse: collapse;
+            border-radius: 10px;
+            overflow: hidden;
+            background-color: #7FC7FF; /* Голубой цвет */
+        }
+
+        th, td {
+            padding: 10px;
+            border: 1px solid #fff;
+            text-align: center;
+        }
+
+        th {
+            background-color: #777; /* Еще темнее серый для заголовков таблицы */
+        }
+
+        td {
+            background-color: #999; /* Серый для ячеек таблицы */
+        }
+
+            td:hover {
+                background-color: #CCC; /* Светло-серый при наведении на ячейку */
+            }
+
+        .no-products {
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        .no-points {
+            text-align: center;
+            margin-top: 20px;
+            color: #fff;
+        }
+
+        .return-button {
+            display: block;
+            width: 150px;
+            margin: 20px auto;
+            padding: 10px;
+            border: none;
+            border-radius: 5px;
+            background-color: #555;
+            color: #fff;
+            text-align: center;
+            text-decoration: none;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+            .return-button:hover {
+                background-color: #777;
+            }
+
+        .delete-button {
+            display: inline-block;
+            padding: 8px 16px;
+            border: none;
+            border-radius: 5px;
+            background-color: #7FC7FF; /* Голубой цвет */
+            color: #30292f; /* Темный пастельный градиент */
+            text-align: center;
+            text-decoration: none;
+            cursor: pointer;
+            transition: background-color 0.3s ease, color 0.3s ease;
+        }
+
+            .delete-button:hover {
+                background-color: #583b63; /* Темный пастельный градиент при наведении */
+                color: #fff; /* Белый текст при наведении */
+            }
+
+        .btn.btn-secondary {
+            background-color: #6c757d; /* Серый цвет */
+            color: #fff; /* Белый цвет */
+            border: none; /* Убираем границу */
+            padding: 10px 20px; /* Отступы внутри кнопки */
+            border-radius: 5px; /* Скругленные углы */
+            text-decoration: none; /* Убираем подчеркивание для ссылки */
+            display: inline-block; /* Размещаем кнопку в строку */
+            transition: background-color 0.3s ease; /* Плавное изменение цвета при наведении */
+            margin-top: 5px;
+        }
+
+            .btn.btn-secondary:hover {
+                background-color: #495057; /* Цвет кнопки при наведении */
+            }
+
+    </style>
+</head>
+<body>
+    <h2>Delete Product</h2>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Код товара</th>
+                <th>Наименование</th>
+                <th>Цена</th>
+                <th>Рейтинг</th>
+                <th>Категория</th>
+                <th>Бренд</th>
+                <th>Количество</th>
+                <th>Производитель</th>
+                <th>Удалить</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var product in Model)
+            {
+                <tr>
+                    <td>@product.ProductId</td>
+                    <td>@product.Name</td>
+                    <td>@product.Price</td>
+                    <td>@product.Rating</td>
+                    <td>@product.Category</td>
+                    <td>@product.Brand</td>
+                    <td>@product.Quantity</td>
+                    <td>@product.Manufacturer</td>
+                    <td>
+                        <form asp-controller="DeleteProduct" asp-action="Delete" method="post">
+                            <input type="hidden" name="id" value="@product.ProductId" />
+                            <button type="submit" class="delete-button">Удалить</button>
+                        </form>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+    <a href="/Home" class="btn btn-secondary">Вернуться на главную страницу</a>
+</body>
+</html>
